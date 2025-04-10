@@ -38,9 +38,20 @@ nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
 }
+form {
+  /* Optional layout control */
+}
+
+label {
+  display: block;
+  margin-block: 0.5em;
+}
 
 input,
 textarea,
 button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   font: inherit;
 }
