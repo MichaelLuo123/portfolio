@@ -84,3 +84,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+
+section {
+  background-color: oklch(98% 0.01 200);
+  padding: 1em;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+}
