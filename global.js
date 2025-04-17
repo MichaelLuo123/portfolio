@@ -8,7 +8,7 @@ let pages = [
     { url: "https://michaelluo123.github.io/portfolio/index.html", title: "Home" },
     { url: "https://michaelluo123.github.io/portfolio/projects/index.html", title: "Projects" },
     { url: "https://michaelluo123.github.io/portfolio/contact/index.html", title: "Contact" },
-    { url: "https://michaelluo123.github.io/portfolio/cv.html", title: "images" },
+    { url: "https://michaelluo123.github.io/portfolio/cv.html", title: "Resume" },
     { url: "https://github.com/michaelluo123", title: "GitHub" }, 
   ];
 
