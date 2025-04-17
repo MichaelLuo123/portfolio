@@ -4,13 +4,18 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? "/"                  // Local server
+  : "/portfolio/";       // GitHub Pages repo name
+
 let pages = [
-    { url: "https://michaelluo123.github.io/portfolio/index.html", title: "Home" },
-    { url: "https://michaelluo123.github.io/portfolio/projects/index.html", title: "Projects" },
-    { url: "https://michaelluo123.github.io/portfolio/contact/index.html", title: "Contact" },
-    { url: "https://michaelluo123.github.io/portfolio/cv.html", title: "Resume" },
+    { url: "index.html", title: "Home" },
+    { url: "projects/index.html", title: "Projects" },
+    { url: "contact/index.html", title: "Contact" },
+    { url: "cv.html", title: "Resume" },
     { url: "https://github.com/michaelluo123", title: "GitHub" }, 
   ];
+  
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
@@ -19,5 +24,10 @@ for (let p of pages) {
     let url = p.url;
     let title = p.title;
   
+    // Fix URL if it’s a relative path
+    if (!url.startsWith("http")) {
+        url = BASE_PATH + url;
+    }
+
     nav.insertAdjacentHTML("beforeend", `<a href="${url}">${title}</a>`);
   }
