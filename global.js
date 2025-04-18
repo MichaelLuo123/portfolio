@@ -29,10 +29,27 @@ document.body.insertAdjacentHTML(
     `
 );
 const select = document.querySelector('.color-scheme select');
-select.addEventListener('input', function (event) {
-    console.log('color scheme changed to', event.target.value);
-    document.documentElement.style.setProperty('color-scheme', event.target.value);
+function setColorScheme(colorScheme) {
+    document.documentElement.style.setProperty("color-scheme", colorScheme);
+    select.value = colorScheme;
+  }
+  
+ 
+if ("colorScheme" in localStorage) {
+    setColorScheme(localStorage.colorScheme);
+} else {
+    
+    setColorScheme("light dark");
+}
+  
+
+select.addEventListener("input", function (event) {
+    const value = event.target.value;
+    console.log("color scheme changed to", value);
+    localStorage.colorScheme = value;
+    setColorScheme(value);
 });
+  
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
