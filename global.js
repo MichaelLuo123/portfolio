@@ -52,6 +52,6 @@ document.body.insertAdjacentHTML(
         <option value="light">Light</option>
         <option value="dark">Dark</option>
       </select>
-    </label>,
+    </label>
     `
 );
