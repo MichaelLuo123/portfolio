@@ -106,14 +106,20 @@ section {
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: black; /* Make all default text black */
+    color: black; /* base body text */
   }
 
   section {
-    background-color: oklch(98% 0.01 200); /* Keep background light */
+    background-color: oklch(98% 0.01 200); /* keep background light */
+    color: black; /* <- add this to force black text */
   }
 
-  a {
-    color: black; /* Make links readable too */
+  section a {
+    color: oklch(40% 0.2 280); /* or another readable dark-ish link color */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: black;
   }
 }
+
