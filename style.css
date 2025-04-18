@@ -103,3 +103,17 @@ section {
   font-size: 80%;
   font-family: inherit;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: black; /* Make all default text black */
+  }
+
+  section {
+    background-color: oklch(98% 0.01 200); /* Keep background light */
+  }
+
+  a {
+    color: black; /* Make links readable too */
+  }
+}
