@@ -95,3 +95,10 @@ section {
   border-radius: 0.5em;
   margin-bottom: 1em;
 }
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
