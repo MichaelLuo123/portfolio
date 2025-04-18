@@ -89,51 +89,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
-
-section {
-  background-color: oklch(98% 0.01 200);
-  padding: 1em;
-  border-radius: 0.5em;
-  margin-bottom: 1em;
-}
 .color-scheme {
   position: absolute;
   top: 1rem;
   right: 1rem;
   font-size: 80%;
   font-family: inherit;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: white; /* default dark mode text color */
-    background-color: #121212; /* or something dark, optional */
-  }
-
-  section {
-    background-color: oklch(98% 0.01 200);
-    color: black; /* override dark mode text */
-  }
-
-  /* Ensure all text inside section is also black */
-  section *, section a {
-    color: black !important;
-  }
-
-  /* Optionally, reset link style inside section if needed */
-  section a:hover {
-    color: oklch(40% 0.2 280);
-    text-decoration: underline;
-  }
-
-  /* Outside section headers stay white if on dark background */
-  header h1, header h2, header h3, header h4, header h5, header h6 {
-    color: white;
-  }
-
-  /* But section headings (inside light box) should be black */
-  section header h2,
-  section header h3 {
-    color: black !important;
-  }
 }
