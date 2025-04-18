@@ -55,7 +55,8 @@ label {
 }
 
 input,
-textarea {
+textarea 
+select{
   grid-column: 2;
   font: inherit;
   box-sizing: border-box;
