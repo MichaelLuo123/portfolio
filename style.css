@@ -106,20 +106,34 @@ section {
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: black; /* base body text */
+    color: white; /* default dark mode text color */
+    background-color: #121212; /* or something dark, optional */
   }
 
   section {
-    background-color: oklch(98% 0.01 200); /* keep background light */
-    color: black; /* <- add this to force black text */
+    background-color: oklch(98% 0.01 200);
+    color: black; /* override dark mode text */
   }
 
-  section a {
-    color: oklch(40% 0.2 280); /* or another readable dark-ish link color */
+  /* Ensure all text inside section is also black */
+  section *, section a {
+    color: black !important;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    color: black;
+  /* Optionally, reset link style inside section if needed */
+  section a:hover {
+    color: oklch(40% 0.2 280);
+    text-decoration: underline;
+  }
+
+  /* Outside section headers stay white if on dark background */
+  header h1, header h2, header h3, header h4, header h5, header h6 {
+    color: white;
+  }
+
+  /* But section headings (inside light box) should be black */
+  section header h2,
+  section header h3 {
+    color: black !important;
   }
 }
-
