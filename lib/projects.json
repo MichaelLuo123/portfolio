@@ -1,48 +1,57 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "NBA Draft Recommender and Player Guesser",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quia velit dolore, hic dolores pariatur quos, accusamus neque, libero facere magni modi! Vitae officia sequi cumque cum minus error qui!"
+        "description": "A full-stack web app built for DataHacks 2025 featuring an NBA draft recommender and Akinator-style legend guessing game, using React, Next.js, and machine learning on live NBA stats."
     },
     {
-        "title": "Nihil voluptates magnam vero!",
+        "title": "League of Legends Role Analysis and Predictor",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Expedita corrupti magnam vitae quas nemo praesentium! Nesciunt, autem neque provident earum laudantium fugiat omnis quas incidunt eaque vero fuga corrupti quisquam in. Veritatis alias maiores cupiditate sequi nostrum cum."
+        "description": "A machine learning project analyzing 97,980 rows of pro League of Legends data to compare role impact and predict player roles using a random forest classifier with 69.89% accuracy."
     },
     {
-        "title": "Dolorem temporibus aliquam necessitatibus.",
+        "title": "Processed Levels of Food Between Grocery Stores Visualization",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Exercitationem eum doloremque ad reiciendis perspiciatis, laborum quae dolorem, et cumque nihil quidem assumenda numquam nobis amet adipisci, dolores temporibus vero tenetur? Aliquid sunt error odio saepe, velit eaque ullam."
+        "description": "A data visualization project comparing levels of processed foods across grocery stores, highlighting nutritional differences through clear and engaging visual analysis."
     },
     {
-        "title": "Minus explicabo fugit dignissimos!",
+        "title": "Handwritten Digit Classifier (KNN + MNIST)",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Veniam libero, voluptates at, ipsam sapiente modi fuga itaque accusantium consectetur quos numquam. Quibusdam a distinctio quas sunt odio. Nisi nulla modi inventore culpa eius veniam accusamus at maiores iste?"
+        "description": "A handwritten digit classifier using K-Nearest Neighbors on the MNIST dataset, achieving high accuracy in image recognition through feature comparison and distance metrics."
     },
     {
-        "title": "Hic cumque vero iste.",
+        "title": "Minigit",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Architecto porro velit natus repudiandae magni mollitia, aliquid sunt deleniti aspernatur sapiente ea ducimus obcaecati dolores corporis esse consectetur blanditiis rerum incidunt, fugit, dolor inventore vel! Vitae unde nulla optio."
+        "description": "A simplified Git-like version control system built in Java with CLI support, featuring staging, branching, SHA-1-based object storage, and robust JUnit-tested version tracking."
     },
     {
-        "title": "Est mollitia asperiores laborum?",
+        "title": "PM2.5 Emissions Comparison of Vehicle Types in Urban India Analysis",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Unde sint amet hic beatae ea sed doloribus illum nisi perferendis ipsum, quos at quibusdam aliquid suscipit. Facere ipsa saepe dolorum commodi, sint assumenda alias ea laudantium, nemo adipisci nulla!"
+        "description": "A data analysis project comparing PM2.5 emissions across vehicle types in urban India, highlighting key contributors to air pollution using visualizations and statistical insights."
     },
     {
-        "title": "Iusto ab qui ullam.",
+        "title": "Horror Puzzle Game",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Numquam, consequatur cumque, atque architecto ex omnis voluptates, sit voluptatum cum fugiat vel. Sunt, recusandae accusantium. Non quo autem ipsum hic error? Dignissimos, maxime inventore tempora illum nisi ipsum repudiandae."
+        "description": "A 2D puzzle platformer with jumpscares built in Unity, featuring custom shaders, showcased to 60+ attendees at the Video Game Development Club open house.."
     },
     {
-        "title": "Inventore delectus fugiat earum.",
+        "title": "Parkour Fury.",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Itaque delectus rem aut iste possimus tenetur? Dolor, delectus rerum, praesentium impedit laudantium eius necessitatibus facilis commodi repellat sequi fuga vel voluptatibus laboriosam nostrum, sed eum reiciendis id maxime asperiores?"
+        "description": "A 2D platformer game built with Python Arcade, featuring accurate collision mechanics and 100+ interactive sprites, awarded Best Beginner Project out of 20+ teams at Leland Hacks."
     },
     {
-        "title": "Impedit optio tempore ad?",
+        "title": "Dungeon Escape Platformer Game?",
+        "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quasi doloremque blanditiis nulla commodi consequuntur ex dolorem sed, incidunt temporibus, fugiat eius itaque quisquam ab, maxime fugit adipisci voluptatum natus delectus iste? Necessitatibus nulla quam sunt ratione odio maxime."
+        "description": "A 2D platformer game built in Unity with C#, featuring precise mouse-controlled aiming and interactive tile-based environments, showcased to 200+ attendees at a UCLA gallery."
     },
     {
         "title": "At autem nam aliquam.",
