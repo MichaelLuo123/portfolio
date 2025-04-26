@@ -76,3 +76,40 @@ for (let p of pages) {
     }
     nav.append(a);
   }
+async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    console.log(response); 
+  
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+  
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!(containerElement instanceof HTMLElement)) {
+    console.error('renderProjects error: Invalid container element provided.');
+    return;
+  }
+  if (!Array.isArray(projects)) {
+    console.error('renderProjects error: Expected an array of project objects.');
+    return;
+  }
+  const validHeading = /^h[1-6]$/i;
+  const headingTag = validHeading.test(headingLevel) ? headingLevel : 'h3';
+  containerElement.innerHTML = '';
+  projects.forEach(project => {
+    const article = document.createElement('article');
+    article.innerHTML = `
+      <${headingTag}>${project.title || 'Untitled Project'}</${headingTag}>
+      <img src="${project.image || 'https://via.placeholder.com/150'}" alt="${project.title || 'Project image'}">
+      <p>${project.description || 'No description provided.'}</p>
+    `;
+    containerElement.appendChild(article);
+  });
+}
