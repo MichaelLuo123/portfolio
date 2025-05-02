@@ -137,15 +137,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 .legend {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1rem 2rem;
   padding: 1.5rem;
   border: 1px solid white;
   width: 100%;
-  max-width: 36rem; /* enough for 3 columns initially */
+  max-width: 600px; /* keeps it wrapped at first */
   box-sizing: border-box;
 }
-
 
 .legend-item {
   display: flex;
