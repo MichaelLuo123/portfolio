@@ -39,15 +39,6 @@ svg.selectAll('path')
   .attr('d', arcGenerator)
   .attr('fill', (d, i) => colors(i));
 
-svg.selectAll('text')
-  .data(arcData)
-  .enter()
-  .append('text')
-  .attr('transform', d => `translate(${arcGenerator.centroid(d)})`)
-  .attr('text-anchor', 'middle')
-  .attr('dy', '.35em')
-  .text(d => d.data.label);
-
 const legend = d3.select('.legend');
 data.forEach((d, i) => {
   legend
