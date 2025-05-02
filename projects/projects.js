@@ -30,7 +30,8 @@ const colors = d3.scaleOrdinal(d3.schemeTableau10);
 const svg = d3.select('#projects-pie-plot')
   .append('svg')
   .attr('viewBox', '-50 -50 100 100')
-  .append('g');
+  .append('g')
+  .attr('transform', 'translate(0,0)');
 
 svg.selectAll('path')
   .data(arcData)
