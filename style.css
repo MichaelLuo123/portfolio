@@ -129,34 +129,36 @@ h1, h2, h3, h4, h5, h6 {
   margin-block: 2em;
   overflow: visible;
 }
+
 .container {
   display: flex;
-  align-items: center;  
-  justify-content: center; 
-  gap: 2rem; 
+  gap: 2rem;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .legend {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
   gap: 1rem;
-  flex: 1;
-  margin: 0;
-  padding: 1rem;
+  list-style: none;
+  padding: 1em;
   border: 1px solid #ccc;
+  margin: 0;
+  flex: 1;
 }
 
-.legend li {
+.legend-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.legend .swatch {
-  display: inline-block;
+.swatch {
   width: 1em;
   height: 1em;
   background-color: var(--color);
-  border-radius: 0.25em;
+  border-radius: 50%;
+  display: inline-block;
 }
-

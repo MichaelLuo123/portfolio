@@ -20,30 +20,22 @@ const data = [
   { value: 5, label: 'cherries' },
 ];
 
-
-const arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
-const sliceGenerator = d3.pie().value(d => d.value);
-const arcData = sliceGenerator(data);
-const colors = d3.scaleOrdinal(d3.schemeTableau10);
-
-
-const svg = d3.select('#projects-pie-plot')
-  .append('svg')
-  .attr('viewBox', '-50 -50 100 100')
-  .append('g')
-  .attr('transform', 'translate(0,0)');
-
-svg.selectAll('path')
-  .data(arcData)
-  .enter()
-  .append('path')
-  .attr('d', arcGenerator)
-  .attr('fill', (d, i) => colors(i));
-
-const legend = d3.select('.legend');
-data.forEach((d, i) => {
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
+let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
+let sliceGenerator = d3.pie().value((d) => d.value);
+let arcData = sliceGenerator(data);
+let arcs = arcData.map((d) => arcGenerator(d));
+arcs.forEach((arc, idx) => {
+  d3.select('svg')
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', colors(idx));
+});
+let legend = d3.select('.legend');
+data.forEach((d, idx) => {
   legend
     .append('li')
-    .attr('style', `--color:${colors(i)}`)
+    .attr('style', `--color: ${colors(idx)}`)
+    .attr('class', 'legend-item')
     .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
 });
