@@ -137,12 +137,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .legend {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem 2rem; /* vertical, horizontal gap */
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  gap: 1rem 2rem;
   padding: 1.5rem;
   border: 1px solid white;
-  max-width: 600px; /* wider box */
   width: 100%;
+  max-width: 1000px; /* allows up to 6x1 layout */
   box-sizing: border-box;
 }
 
