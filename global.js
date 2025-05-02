@@ -100,19 +100,25 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     console.error('renderProjects error: Expected an array of project objects.');
     return;
   }
+
   const validHeading = /^h[1-6]$/i;
   const headingTag = validHeading.test(headingLevel) ? headingLevel : 'h3';
   containerElement.innerHTML = '';
+
   projects.forEach(project => {
     const article = document.createElement('article');
     article.innerHTML = `
       <${headingTag}>${project.title || 'Untitled Project'}</${headingTag}>
       <img src="${project.image || 'https://via.placeholder.com/150'}" alt="${project.title || 'Project image'}">
-      <p>${project.description || 'No description provided.'}</p>
+      <div class="project-text">
+        <p>${project.description || 'No description provided.'}</p>
+        ${project.year ? `<p class="project-year">${project.year}</p>` : ''}
+      </div>
     `;
     containerElement.appendChild(article);
   });
 }
+
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }
