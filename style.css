@@ -129,3 +129,29 @@ h1, h2, h3, h4, h5, h6 {
   margin-block: 2em;
   overflow: visible;
 }
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  list-style-type: none;
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.legend .swatch {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: var(--color);
+  border-radius: 50%;
+}
