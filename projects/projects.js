@@ -14,6 +14,8 @@ import { fetchJSON, renderProjects } from '../global.js';
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let data = [1, 2]; 
+let sliceGenerator = d3.pie();
+let arcData = sliceGenerator(data);
 let arcs = arcData.map((d) => arcGenerator(d));
 let colors = ['gold', 'purple'];
 arcs.forEach((arc, idx) => {
