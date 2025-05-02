@@ -21,7 +21,7 @@ const data = [
 ];
 
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
-let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
+let arcGenerator = d3.arc().innerRadius(0).outerRadius(30);
 let sliceGenerator = d3.pie().value((d) => d.value);
 let arcData = sliceGenerator(data);
 let arcs = arcData.map((d) => arcGenerator(d));

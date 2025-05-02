@@ -134,19 +134,18 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   gap: 2rem;
   align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .legend {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-auto-rows: auto; /* auto row height */
+  gap: 0.5rem;
   list-style: none;
-  padding: 1em;
-  border: 1px solid #ccc;
+  padding: 1rem;
   margin: 0;
-  flex: 1;
+  border: 1px solid #ccc;
+  max-width: 300px;
 }
 
 .legend-item {
@@ -158,7 +157,8 @@ h1, h2, h3, h4, h5, h6 {
 .swatch {
   width: 1em;
   height: 1em;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.25em;
   background-color: var(--color);
-  border-radius: 50%;
   display: inline-block;
 }
