@@ -136,21 +136,21 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 .legend {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 1rem 2rem; /* more space between rows (1rem) and columns (2rem) */
-  list-style: none;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  background: white;
-  font-family: sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2rem; /* more horizontal and vertical spacing */
+  padding: 1.5rem;
+  border: 1px solid white;
+  max-width: 500px; /* makes the box a bit wider */
 }
 
 .legend-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
 }
+
 
 .swatch {
   width: 1em;
