@@ -131,57 +131,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 .container {
   display: flex;
-  align-items: center; 
-  gap: 20px;
+  align-items: center;
+  gap: 2rem;
 }
 
 .legend {
-  display: flex;
-  flex-direction: column;
-  flex: 1; 
-  padding: 10px;
-  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 1rem;
+  flex: 1;
   margin: 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
 }
-
 
 .legend li {
   display: flex;
   align-items: center;
-  gap: 10px; 
+  gap: 0.5rem;
 }
 
-.swatch {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  border-radius: 50%;
-}
-
-.legend.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-  list-style-type: none;
-  margin-top: 2rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.legend.grid li {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1rem;
-  padding: 0.5rem;
-}
-
-.legend.grid .swatch {
+.legend .swatch {
   display: inline-block;
   width: 1em;
   height: 1em;
   background-color: var(--color);
-  border-radius: 50%;
+  border-radius: 0.25em;
 }
 
