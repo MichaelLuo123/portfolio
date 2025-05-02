@@ -129,8 +129,36 @@ h1, h2, h3, h4, h5, h6 {
   margin-block: 2em;
   overflow: visible;
 }
+.container {
+  display: flex;
+  align-items: center; 
+  gap: 20px;
+}
 
 .legend {
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+  padding: 10px;
+  list-style-type: none;
+  margin: 0;
+}
+
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.swatch {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.legend.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
   gap: 1rem;
@@ -141,17 +169,19 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 8px;
 }
 
-.legend li {
+.legend.grid li {
   display: flex;
   align-items: center;
   gap: 1rem;
   font-size: 1rem;
   padding: 0.5rem;
 }
-.legend .swatch {
+
+.legend.grid .swatch {
   display: inline-block;
   width: 1em;
   height: 1em;
   background-color: var(--color);
   border-radius: 50%;
 }
+
