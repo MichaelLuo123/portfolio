@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 1rem 2rem; /* vertical, horizontal gap */
   padding: 1.5rem;
   border: 1px solid white;
-  max-width: 650px; /* wider box */
+  max-width: 600px; /* wider box */
   width: 100%;
   box-sizing: border-box;
 }
