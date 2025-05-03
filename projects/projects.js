@@ -17,6 +17,24 @@ let selectedIndex = -1;
   let svg = d3.select('svg');
   let legend = d3.select('.legend');
 
+  // 🧠 Reusable filter function
+  const getFilteredProjects = () => {
+    let filtered = projects;
+
+    if (query) {
+      filtered = filtered.filter((project) =>
+        Object.values(project).join('\n').toLowerCase().includes(query)
+      );
+    }
+
+    if (selectedIndex !== -1) {
+      const selectedYear = svg.selectAll('path').data()[selectedIndex].data.label;
+      filtered = filtered.filter((p) => p.year === selectedYear);
+    }
+
+    return filtered;
+  };
+
   const updateVisualization = (dataSet) => {
     svg.selectAll('path').remove();
     legend.selectAll('li').remove();
@@ -44,6 +62,7 @@ let selectedIndex = -1;
         .attr('d', arc)
         .attr('fill', colors(idx))
         .attr('class', selectedIndex === idx ? 'selected' : '')
+        .datum(data[idx]) // attach data
         .on('click', () => {
           selectedIndex = selectedIndex === idx ? -1 : idx;
 
@@ -53,19 +72,17 @@ let selectedIndex = -1;
           legend.selectAll('li')
             .attr('class', (_, i) => 'legend-item' + (selectedIndex === i ? ' selected' : ''));
 
-          const selectedYear = selectedIndex === -1 ? null : data[selectedIndex].label;
-          const filtered = selectedYear
-            ? projects.filter((p) => p.year === selectedYear)
-            : projects;
-
+          const filtered = getFilteredProjects();
           renderProjects(filtered, projectsContainer, 'h2');
           if (projectsTitle) {
             projectsTitle.textContent = `Projects: ${filtered.length}`;
           }
+
+          updateVisualization(getFilteredProjects());
         });
     });
 
-    // Draw legend
+
     data.forEach((d, idx) => {
       legend.append('li')
         .attr('style', `--color: ${colors(idx)}`)
@@ -80,36 +97,28 @@ let selectedIndex = -1;
           legend.selectAll('li')
             .attr('class', (_, i) => 'legend-item' + (selectedIndex === i ? ' selected' : ''));
 
-          const selectedYear = selectedIndex === -1 ? null : data[selectedIndex].label;
-          const filtered = selectedYear
-            ? projects.filter((p) => p.year === selectedYear)
-            : projects;
-
+          const filtered = getFilteredProjects();
           renderProjects(filtered, projectsContainer, 'h2');
           if (projectsTitle) {
             projectsTitle.textContent = `Projects: ${filtered.length}`;
           }
+
+          updateVisualization(getFilteredProjects());
         });
     });
   };
 
   updateVisualization(projects);
 
- 
   const searchInput = document.querySelector('.searchBar');
   searchInput.addEventListener('input', (event) => {
     query = event.target.value.toLowerCase();
-
-    const filteredProjects = projects.filter((project) => {
-      const values = Object.values(project).join('\n').toLowerCase();
-      return values.includes(query);
-    });
-
-    selectedIndex = -1; 
-    updateVisualization(filteredProjects);
-    renderProjects(filteredProjects, projectsContainer, 'h2');
+    const filtered = getFilteredProjects();
+    renderProjects(filtered, projectsContainer, 'h2');
     if (projectsTitle) {
-      projectsTitle.textContent = `Projects: ${filteredProjects.length}`;
+      projectsTitle.textContent = `Projects: ${filtered.length}`;
     }
+
+    updateVisualization(filtered);
   });
 })();
