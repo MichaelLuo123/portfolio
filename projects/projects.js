@@ -6,18 +6,12 @@ let projects = [];
 let selectedIndex = -1;
 (async function () {
   projects = await fetchJSON('../lib/projects.json');
-  let filteredProjects = projects; 
   const projectsContainer = document.querySelector('.projects');
   renderProjects(projects, projectsContainer, 'h2');
   const projectsTitle = document.querySelector('.projects-title');
   if (projectsTitle) {
     projectsTitle.textContent = `Projects: ${projects.length}`;
   }
-  const svg = d3.select('svg');
-  svg.selectAll('path').remove();
-
-  const legend = d3.select('.legend');
-  legend.selectAll('li').remove();
   
   const rolledData = d3.rollups(
     projects,
@@ -49,21 +43,22 @@ arcs.forEach((arc, idx) => {
 
       legend.selectAll('li')
         .attr('class', (_, i) => 'legend-item' + (selectedIndex === i ? ' selected' : ''));
-      const projectsContainer = document.querySelector('.projects');
-      if (selectedIndex === -1) {
-        renderProjects(projects, projectsContainer, 'h2');
-      } else {
-        const selectedYear = data[selectedIndex].label;
-        const filteredProjects = projects.filter(p => p.year === selectedYear);
-        renderProjects(filteredProjects, projectsContainer, 'h2');
-      }
-      
-      const projectsTitle = document.querySelector('.projects-title');
-      if (projectsTitle) {
-        const count = selectedIndex === -1 ? projects.length : projects.filter(p => p.year === data[selectedIndex].label).length;
-        projectsTitle.textContent = `Projects: ${count}`;
-      }
     });
+    const projectsContainer = document.querySelector('.projects');
+
+    if (selectedIndex === -1) {
+      renderProjects(projects, projectsContainer, 'h2');
+      if (projectsTitle) {
+        projectsTitle.textContent = `Projects: ${projects.length}`;
+      }
+    } else {
+      const selectedYear = data[selectedIndex].label;
+      const filteredByYear = projects.filter((p) => p.year === selectedYear);
+      renderProjects(filteredByYear, projectsContainer, 'h2');
+      if (projectsTitle) {
+        projectsTitle.textContent = `Projects: ${filteredByYear.length}`;
+      }
+    }
 });
 data.forEach((d, idx) => {
   legend.append('li')
@@ -79,22 +74,23 @@ data.forEach((d, idx) => {
       legend.selectAll('li')
         .attr('class', (_, i) => 'legend-item' + (selectedIndex === i ? ' selected' : ''));
     });
-      const projectsContainer = document.querySelector('.projects');
-      if (selectedIndex === -1) {
-        renderProjects(projects, projectsContainer, 'h2');
+    const projectsContainer = document.querySelector('.projects');
+
+    if (selectedIndex === -1) {
+      renderProjects(projects, projectsContainer, 'h2');
+      if (projectsTitle) {
+        projectsTitle.textContent = `Projects: ${projects.length}`;
+      }
     } else {
       const selectedYear = data[selectedIndex].label;
-      const filteredProjects = projects.filter(p => p.year === selectedYear);
-      renderProjects(filteredProjects, projectsContainer, 'h2');
+      const filteredByYear = projects.filter((p) => p.year === selectedYear);
+      renderProjects(filteredByYear, projectsContainer, 'h2');
+      if (projectsTitle) {
+        projectsTitle.textContent = `Projects: ${filteredByYear.length}`;
+      }
     }
-
-    const projectsTitle = document.querySelector('.projects-title');
-    if (projectsTitle) {
-      const count = selectedIndex === -1 ? projects.length : projects.filter(p => p.year === data[selectedIndex].label).length;
-      projectsTitle.textContent = `Projects: ${count}`;
-    }
-  });
 });
+})();
 const searchInput = document.querySelector('.searchBar');
 
 searchInput.addEventListener('input', (event) => {
@@ -148,4 +144,4 @@ searchInput.addEventListener('input', (event) => {
       .attr('class', 'legend-item')
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
-})();
+});
