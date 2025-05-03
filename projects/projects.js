@@ -3,7 +3,7 @@ import { fetchJSON, renderProjects } from '../global.js';
 
 let query = '';
 let projects = [];
-
+let selectedIndex = -1;
 (async function () {
   projects = await fetchJSON('../lib/projects.json');
   const projectsContainer = document.querySelector('.projects');
@@ -12,6 +12,11 @@ let projects = [];
   if (projectsTitle) {
     projectsTitle.textContent = `Projects: ${projects.length}`;
   }
+  const svg = d3.select('svg');
+  svg.selectAll('path').remove();
+
+  const legend = d3.select('.legend');
+  legend.selectAll('li').remove();
   
   const rolledData = d3.rollups(
     projects,
@@ -31,18 +36,34 @@ let sliceGenerator = d3.pie().value((d) => d.value);
 let arcData = sliceGenerator(data);
 let arcs = arcData.map((d) => arcGenerator(d));
 arcs.forEach((arc, idx) => {
-  d3.select('svg')
-    .append('path')
+  svg.append('path')
     .attr('d', arc)
-    .attr('fill', colors(idx));
+    .attr('fill', colors(idx))
+    .attr('class', selectedIndex === idx ? 'selected' : '')
+    .on('click', () => {
+      selectedIndex = selectedIndex === idx ? -1 : idx;
+
+      svg.selectAll('path')
+        .attr('class', (_, i) => (selectedIndex === i ? 'selected' : ''));
+
+      legend.selectAll('li')
+        .attr('class', (_, i) => 'legend-item' + (selectedIndex === i ? ' selected' : ''));
+    });
 });
-let legend = d3.select('.legend');
 data.forEach((d, idx) => {
-  legend
-    .append('li')
+  legend.append('li')
     .attr('style', `--color: ${colors(idx)}`)
-    .attr('class', 'legend-item')
-    .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+    .attr('class', 'legend-item' + (selectedIndex === idx ? ' selected' : ''))
+    .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`)
+    .on('click', () => {
+      selectedIndex = selectedIndex === idx ? -1 : idx;
+
+      svg.selectAll('path')
+        .attr('class', (_, i) => (selectedIndex === i ? 'selected' : ''));
+
+      legend.selectAll('li')
+        .attr('class', (_, i) => 'legend-item' + (selectedIndex === i ? ' selected' : ''));
+    });
 });
 })();
 const searchInput = document.querySelector('.searchBar');
