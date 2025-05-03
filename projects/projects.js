@@ -12,6 +12,7 @@ let projects = [];
   if (projectsTitle) {
     projectsTitle.textContent = `Projects: ${projects.length}`;
   }
+  
   const rolledData = d3.rollups(
     projects,
     (v) => v.length,
@@ -61,4 +62,40 @@ searchInput.addEventListener('input', (event) => {
   if (projectsTitle) {
     projectsTitle.textContent = `Projects: ${filteredProjects.length}`;
   }
+  let svg = d3.select('svg');
+  svg.selectAll('path').remove();
+
+  let legend = d3.select('.legend');
+  legend.selectAll('li').remove();
+
+  const rolledData = d3.rollups(
+    filteredProjects,
+    (v) => v.length,
+    (d) => d.year
+  );
+
+  const data = rolledData.map(([year, count]) => ({
+    value: count,
+    label: year
+  }));
+  const colors = d3.scaleOrdinal(d3.schemeTableau10);
+  const arcGenerator = d3.arc().innerRadius(0).outerRadius(35);
+  const sliceGenerator = d3.pie().value((d) => d.value);
+  const arcData = sliceGenerator(data);
+  const arcs = arcData.map((d) => arcGenerator(d));
+
+  arcs.forEach((arc, idx) => {
+    d3.select('svg')
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', colors(idx));
+  });
+
+  data.forEach((d, idx) => {
+    legend
+      .append('li')
+      .attr('style', `--color: ${colors(idx)}`)
+      .attr('class', 'legend-item')
+      .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+  });
 });
