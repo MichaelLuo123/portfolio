@@ -161,3 +161,11 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0.2em;
   display: inline-block;
 }
+
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+svg path {
+  transition: opacity 300ms;
+}
