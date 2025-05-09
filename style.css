@@ -183,17 +183,25 @@ svg path {
   --color: oklch(60% 45% 0) !important;
 }
 .stats {
-  display: grid;
-  grid-template-columns: max-content auto;
-  gap: 0.25em 1em;
-  font-family: sans-serif;
-  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+  border-top: 1px solid #ccc;
+  font-family: system-ui, sans-serif;
+  flex-wrap: wrap;
 }
 
 .stats dt {
-  font-weight: bold;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
 }
 
 .stats dd {
+  font-size: 2rem;
+  font-weight: bold;
   margin: 0;
+  text-align: center;
 }
