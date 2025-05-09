@@ -117,8 +117,18 @@ function renderScatterPlot(data, commits) {
         .join('circle')
         .attr('cx', d => xScale(d.datetime))
         .attr('cy', d => yScale(d.hourFrac))
-        .attr('r', 4)
-        .attr('fill', 'steelblue');
+        .attr('r', 5)
+        .attr('fill', 'steelblue')
+        .style('transition', 'transform 200ms')
+        .style('transform-origin', 'center')
+        .style('transform-box', 'fill-box')
+        .on('mouseenter', (event, commit) => {
+            renderTooltipContent(commit);
+            d3.select('#commit-tooltip').style('display', 'block');
+        })
+        .on('mouseleave', () => {
+            d3.select('#commit-tooltip').style('display', 'none');
+        });
 
   
     const xAxis = d3.axisBottom(xScale);
@@ -137,7 +147,27 @@ function renderScatterPlot(data, commits) {
         .attr('transform', `translate(${usableArea.left}, 0)`)
         .call(yAxis);
 }
+function renderTooltipContent(commit) {
+    if (Object.keys(commit).length === 0) return;
   
+    const link = document.getElementById('commit-link');
+    const date = document.getElementById('commit-date');
+    const time = document.getElementById('commit-time');
+    const author = document.getElementById('commit-author');
+    const lines = document.getElementById('commit-lines');
+  
+    link.href = commit.url;
+    link.textContent = commit.id;
+    date.textContent = commit.datetime.toLocaleDateString('en', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+    time.textContent = commit.datetime.toLocaleTimeString('en');
+    author.textContent = commit.author;
+    lines.textContent = commit.totalLines;
+  }
   
 let data = await loadData();
 let commits = processCommits(data);
