@@ -125,11 +125,11 @@ function renderScatterPlot(data, commits) {
         .on('mouseenter', (event, commit) => {
             renderTooltipContent(commit);
             updateTooltipVisibility(true);
+            updateTooltipPosition(event);
         })
         .on('mouseleave', () => {
             updateTooltipVisibility(false);
         });
-
   
     const xAxis = d3.axisBottom(xScale);
     const yAxis = d3
@@ -171,6 +171,11 @@ function renderTooltipContent(commit) {
 function updateTooltipVisibility(isVisible) {
     const tooltip = document.getElementById('commit-tooltip');
     tooltip.hidden = !isVisible;
+}
+function updateTooltipPosition(event) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.style.left = `${event.clientX + 10}px`;
+    tooltip.style.top = `${event.clientY + 10}px`;
 }
 let data = await loadData();
 let commits = processCommits(data);
