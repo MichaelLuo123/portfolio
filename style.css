@@ -225,7 +225,6 @@ svg path {
   border-radius: 0.5em;
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1); 
   backdrop-filter: blur(4px); 
-  display: none; 
   z-index: 1000;
   pointer-events: none; 
   font-family: system-ui, sans-serif;
