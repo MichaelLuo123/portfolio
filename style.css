@@ -217,14 +217,22 @@ svg path {
 }
 .tooltip {
   position: fixed;
-  top: 1em;
-  left: 1em;
-  background: rgba(255, 255, 255, 0.9);
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9); 
+  color: black;
   padding: 1em;
-  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
   border-radius: 0.5em;
-  display: none;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(4px); 
+  display: none; 
   z-index: 1000;
+  pointer-events: none; 
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  width: max-content;
+  max-width: 300px;
 }
 .gridlines line {
   stroke: #ccc;
