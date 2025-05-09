@@ -182,3 +182,18 @@ svg path {
 .legend-item.selected {
   --color: oklch(60% 45% 0) !important;
 }
+.stats {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.25em 1em;
+  font-family: sans-serif;
+  margin-top: 1em;
+}
+
+.stats dt {
+  font-weight: bold;
+}
+
+.stats dd {
+  margin: 0;
+}
