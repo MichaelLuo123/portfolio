@@ -13,6 +13,7 @@ let pages = [
     { url: "projects/index.html", title: "Projects" },
     { url: "contact/index.html", title: "Contact" },
     { url: "cv.html", title: "Resume" },
+    { url: "meta/index.html", title: "Meta"},
     { url: "https://github.com/michaelluo123", title: "GitHub" }, 
   ];
 document.body.insertAdjacentHTML(
