@@ -11,5 +11,35 @@ async function loadData() {
   
     return data;
   }
+function processCommits(data) {
+    return d3
+      .groups(data, d => d.commit)
+      .map(([commit, lines]) => {
+        let first = lines[0];
+        let { author, date, time, timezone, datetime } = first;
+  
+        let ret = {
+          id: commit,
+          url: 'https://github.com/vis-society/lab-7/commit/' + commit,
+          author,
+          date,
+          time,
+          timezone,
+          datetime,
+          hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
+          totalLines: lines.length,
+        };
+  
+        Object.defineProperty(ret, 'lines', {
+          value: lines,
+          enumerable: false,
+          writable: true,
+          configurable: true,
+        });
+  
+        return ret;
+      });
+  }
 let data = await loadData();
-console.log(data);
+let commits = processCommits(data);
+console.log(commits);
