@@ -215,3 +215,12 @@ svg path {
   flex-direction: column;
   align-items: center;
 }
+.gridlines line {
+  stroke: #ccc;
+  stroke-opacity: 0.5;
+  shape-rendering: crispEdges;
+}
+
+.gridlines path {
+  display: none; 
+}
