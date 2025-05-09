@@ -124,10 +124,10 @@ function renderScatterPlot(data, commits) {
         .style('transform-box', 'fill-box')
         .on('mouseenter', (event, commit) => {
             renderTooltipContent(commit);
-            d3.select('#commit-tooltip').style('display', 'block');
+            updateTooltipVisibility(true);
         })
         .on('mouseleave', () => {
-            d3.select('#commit-tooltip').style('display', 'none');
+            updateTooltipVisibility(false);
         });
 
   
@@ -168,7 +168,10 @@ function renderTooltipContent(commit) {
     author.textContent = commit.author;
     lines.textContent = commit.totalLines;
   }
-  
+function updateTooltipVisibility(isVisible) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.hidden = !isVisible;
+}
 let data = await loadData();
 let commits = processCommits(data);
 renderCommitInfo(data, commits);
