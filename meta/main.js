@@ -156,6 +156,9 @@ function renderScatterPlot(data, commits) {
         .append('g')
         .attr('transform', `translate(${usableArea.left}, 0)`)
         .call(yAxis);
+        
+    svg.call(d3.brush());
+    svg.selectAll('.dots, .overlay ~ *').raise()
 }
 function renderTooltipContent(commit) {
     if (Object.keys(commit).length === 0) return;
@@ -186,6 +189,9 @@ function updateTooltipPosition(event) {
     const tooltip = document.getElementById('commit-tooltip');
     tooltip.style.left = `${event.clientX + 10}px`;
     tooltip.style.top = `${event.clientY + 10}px`;
+}
+function createBrushSelector(svg) {
+    svg.call(d3.brush());
 }
 let data = await loadData();
 let commits = processCommits(data);
