@@ -198,7 +198,7 @@ function createBrushSelector(svg) {
 function brushed(event) {
     const selection = event.selection;
     renderSelectionCount(selection);
-    d3.selectAll('circle').classed('selected', (d) => isCommitSelected(selection, d));\
+    d3.selectAll('circle').classed('selected', (d) => isCommitSelected(selection, d));
     renderLanguageBreakdown(selection);
 }
 function isCommitSelected(selection, commit) {
@@ -251,7 +251,6 @@ function renderLanguageBreakdown(selection) {
         `;
     }
 }
-
 let data = await loadData();
 let commits = processCommits(data);
 renderCommitInfo(data, commits);
