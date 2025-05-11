@@ -197,22 +197,29 @@ function createBrushSelector(svg) {
 }
 function brushed(event) {
     const selection = event.selection;
+    renderSelectionCount(selection);
     d3.selectAll('circle').classed('selected', (d) => isCommitSelected(selection, d));
 }
 function isCommitSelected(selection, commit) {
     if (!selection) {
         return false;
     }
-
-    // Get the bounds of the selection: [x0, x1], [y0, y1]
     const [[x0, y0], [x1, y1]] = selection;
-
-    // Get the x and y positions for this commit
     const x = xScale(commit.datetime);
     const y = yScale(commit.hourFrac);
-
-    // Check if the commit's coordinates are inside the selected area
     return x >= x0 && x <= x1 && y >= y0 && y <= y1;
+}
+function renderSelectionCount(selection) {
+    const selectedCommits = selection
+      ? commits.filter((d) => isCommitSelected(selection, d))
+      : [];
+  
+    const countElement = document.querySelector('#selection-count');
+    countElement.textContent = `${
+      selectedCommits.length || 'No'
+    } commits selected`;
+  
+    return selectedCommits;
 }
 let data = await loadData();
 let commits = processCommits(data);
