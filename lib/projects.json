@@ -57,6 +57,8 @@
         "title": "Boston Bike Traffic Visualization",
         "year": "2025",
         "image": "../images/bike-project.jpeg",
+        "width": "272px",
+        "height": "136px",
         "description": "This project visualizes Boston bike traffic by showing locations with more bike departures, arrivals, or balanced flow using color-coded circles and a clear legend for easy interpretation."
     },
     {
