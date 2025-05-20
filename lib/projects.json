@@ -54,9 +54,10 @@
         "description": "A 2D platformer game built in Unity with C#, featuring precise mouse-controlled aiming and interactive tile-based environments, showcased to 200+ attendees at a UCLA gallery."
     },
     {
-        "title": "At autem nam aliquam.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Voluptatem aliquid, nemo laborum necessitatibus quisquam quas consequatur atque qui, minus adipisci asperiores accusamus minima tenetur quasi eum nihil mollitia tempora voluptate? Molestiae illo magnam rem quidem doloremque totam. Facilis."
+        "title": "Boston Bike Traffic Visualization",
+        "year": "2025",
+        "image": "/portfolio/images/bike-project.png",
+        "description": "This project visualizes Boston bike traffic by showing locations with more bike departures, arrivals, or balanced flow using color-coded circles and a clear legend for easy interpretation."
     },
     {
         "title": "Ratione assumenda quam qui!",
