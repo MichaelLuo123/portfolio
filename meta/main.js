@@ -67,13 +67,14 @@ function renderCommitInfo(data, commits) {
   dl.append('dt').text('Average line length');
   dl.append('dd').text(d3.mean(data, d => d.length).toFixed(2));
 }
-function renderScatterPlot(data, commits) {
-    const sortedCommits = d3.sort(commits, d => -d.totalLines);
+function updateScatterPlot(data, filteredCommits) {
+    d3.select('svg').remove(); 
+
+    const sortedCommits = d3.sort(filteredCommits, d => -d.totalLines);
     const width = 1000;
     const height = 600;
     const margin = { top: 10, right: 10, bottom: 30, left: 20 };
 
-  
     const usableArea = {
         top: margin.top,
         right: width - margin.right,
@@ -83,87 +84,78 @@ function renderScatterPlot(data, commits) {
         height: height - margin.top - margin.bottom,
     };
 
-    
     const svg = d3
         .select('#chart')
         .append('svg')
         .attr('viewBox', `0 0 ${width} ${height}`)
         .style('overflow', 'visible');
 
-  
     xScale = d3
         .scaleTime()
-        .domain(d3.extent(commits, d => d.datetime))
+        .domain(d3.extent(filteredCommits, d => d.datetime))
         .range([usableArea.left, usableArea.right])
         .nice();
+
     yScale = d3
         .scaleLinear()
         .domain([0, 24])
         .range([usableArea.bottom, usableArea.top]);
 
-    const [minLines, maxLines] = d3.extent(commits, d => d.totalLines);
+    const [minLines, maxLines] = d3.extent(filteredCommits, d => d.totalLines);
     const rScale = d3
-        .scaleSqrt() 
+        .scaleSqrt()
         .domain([minLines, maxLines])
         .range([2, 30]);
 
-    
     const gridlines = svg
         .append('g')
         .attr('class', 'gridlines')
         .attr('transform', `translate(${usableArea.left}, 0)`);
 
-
     gridlines.call(
         d3.axisLeft(yScale)
-            .tickFormat('') 
-            .tickSize(-usableArea.width) 
+            .tickFormat('')
+            .tickSize(-usableArea.width)
     );
-    
-    svg
-        .append('g')
-        .attr('class', 'dots')
-        .selectAll('circle')
+
+    const dots = svg.append('g').attr('class', 'dots');
+
+    dots.selectAll('circle')
         .data(sortedCommits)
         .join('circle')
         .attr('cx', d => xScale(d.datetime))
         .attr('cy', d => yScale(d.hourFrac))
-        .attr('r', d => rScale(d.totalLines)) 
+        .attr('r', d => rScale(d.totalLines))
         .attr('fill', 'steelblue')
-        .style('fill-opacity', 0.7) 
+        .style('fill-opacity', 0.7)
         .style('transition', 'transform 200ms')
         .style('transform-origin', 'center')
         .style('transform-box', 'fill-box')
         .on('mouseenter', (event, commit) => {
-            d3.select(event.currentTarget).style('fill-opacity', 1); 
+            d3.select(event.currentTarget).style('fill-opacity', 1);
             renderTooltipContent(commit);
             updateTooltipVisibility(true);
             updateTooltipPosition(event);
         })
         .on('mouseleave', (event) => {
-             d3.select(event.currentTarget).style('fill-opacity', 0.7);
-         updateTooltipVisibility(false);
+            d3.select(event.currentTarget).style('fill-opacity', 0.7);
+            updateTooltipVisibility(false);
         });
-  
-    const xAxis = d3.axisBottom(xScale);
-    const yAxis = d3
-        .axisLeft(yScale)
-        .tickFormat(d => String(d % 24).padStart(2, '0') + ':00');
-
 
     svg
         .append('g')
         .attr('transform', `translate(0, ${usableArea.bottom})`)
-        .call(xAxis);
+        .call(d3.axisBottom(xScale));
 
     svg
         .append('g')
         .attr('transform', `translate(${usableArea.left}, 0)`)
-        .call(yAxis);
-        
+        .call(d3.axisLeft(yScale).tickFormat(d => String(d % 24).padStart(2, '0') + ':00'));
+
     svg.call(d3.brush().on('start brush end', brushed));
-    svg.selectAll('.dots, .overlay ~ *').raise()
+    svg.selectAll('.dots, .overlay ~ *').raise();
 }
+
 function renderTooltipContent(commit) {
     if (Object.keys(commit).length === 0) return;
   
@@ -268,11 +260,23 @@ selectedTime.textContent = timeScale.invert(commitProgress).toLocaleString('en',
 
 slider.addEventListener('input', (event) => {
   commitProgress = +event.target.value;
-  const commitMaxTime = timeScale.invert(commitProgress);
-  selectedTime.textContent = commitMaxTime.toLocaleString('en', {
-    dateStyle: 'long',
-    timeStyle: 'short',
-  });
+  updateTimeDisplay()
 });
+let filteredCommits = [];
+
+function filterCommitsByTime() {
+  const commitMaxTime = timeScale.invert(commitProgress);
+  filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
+}
+function updateTimeDisplay() {
+    const commitMaxTime = timeScale.invert(commitProgress);
+    selectedTime.textContent = commitMaxTime.toLocaleString('en', {
+      dateStyle: 'long',
+      timeStyle: 'short',
+    });
+  
+    filterCommitsByTime();
+    updateScatterPlot(data, filteredCommits);
+  }
 renderCommitInfo(data, commits);
-renderScatterPlot(data, commits);
+updateScatterPlot(data, commits);
