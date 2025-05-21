@@ -122,29 +122,26 @@ function updateScatterPlot(data, filteredCommits) {
 
     dots.selectAll('circle')
         .data(sortedCommits)
-        .join(
-            enter => enter.append('circle')
-                .attr('cx', d => xScale(d.datetime))
-                .attr('cy', d => yScale(d.hourFrac))
-                .attr('r', 0)  
-                .attr('fill', 'steelblue')
-                .style('fill-opacity', 0.7)
-                .style('transition', 'r 200ms ease')  
-                .on('mouseenter', (event, commit) => {
-                    d3.select(event.currentTarget).style('fill-opacity', 1);
-                    renderTooltipContent(commit);
-                    updateTooltipVisibility(true);
-                    updateTooltipPosition(event);
-                })
-                .on('mouseleave', (event) => {
-                    d3.select(event.currentTarget).style('fill-opacity', 0.7);
-                    updateTooltipVisibility(false);
-                })
-                .transition()  
-                .attr('r', d => rScale(d.totalLines)),  
-            update => update,
-            exit => exit.remove()
-        );
+        .join('circle')
+        .attr('cx', d => xScale(d.datetime))
+        .attr('cy', d => yScale(d.hourFrac))
+        .attr('r', d => rScale(d.totalLines))
+        .attr('fill', 'steelblue')
+        .style('fill-opacity', 0.7)
+        .style('transition', 'transform 200ms')
+        .style('transform-origin', 'center')
+        .style('transform-box', 'fill-box')
+        .on('mouseenter', (event, commit) => {
+            d3.select(event.currentTarget).style('fill-opacity', 1);
+            renderTooltipContent(commit);
+            updateTooltipVisibility(true);
+            updateTooltipPosition(event);
+        })
+        .on('mouseleave', (event) => {
+            d3.select(event.currentTarget).style('fill-opacity', 0.7);
+            updateTooltipVisibility(false);
+        });
+
     svg
         .append('g')
         .attr('transform', `translate(0, ${usableArea.bottom})`)

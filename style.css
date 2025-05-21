@@ -243,11 +243,16 @@ svg path {
   display: none; 
 }
 circle {
-  transition: r 200ms ease;
+  transition: 200ms;
   transform-origin: center;
   transform-box: fill-box; 
-}
 
+}
+@starting-style {
+  circle {
+    r: 0;
+  }
+}
 circle:hover {
   transform: scale(1.5);
 }
