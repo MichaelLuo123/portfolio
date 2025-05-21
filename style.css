@@ -243,9 +243,9 @@ svg path {
   display: none; 
 }
 circle {
-  transition: 200ms;
+  transition: r 200ms ease;
   transform-origin: center;
-  transform-box: fill-box;
+  transform-box: fill-box; 
 }
 
 circle:hover {
@@ -302,3 +302,4 @@ circle.selected {
   margin-left: auto;
   font-weight: bold;
 }
+
