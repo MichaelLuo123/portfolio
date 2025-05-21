@@ -107,6 +107,9 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
   containerElement.innerHTML = '';
 
   projects.forEach(project => {
+    const width = project.width ? `width:${project.width};` : '';
+    const height = project.height ? `height:${project.height};` : '';
+    const style = width || height ? `style="${width}${height}"` : '';
     const article = document.createElement('article');
     article.innerHTML = `
       <${headingTag}>${project.title || 'Untitled Project'}</${headingTag}>
