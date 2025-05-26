@@ -303,3 +303,90 @@ circle.selected {
   font-weight: bold;
 }
 
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 0.25rem;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+    font-weight: bold;
+  }
+
+  dd {
+    grid-column: 2;
+    margin: 0;
+  }
+}
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+}
+
+dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+dt small {
+  display: block;
+  font-size: 0.75em;
+  opacity: 0.7;
+  margin-top: 0.2em;
+}
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex: 1;
+  }
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+/* generic styling shared by every scrolly container  */
+.scrolly {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+/* flip left / right for mirrored passes               */
+.scrolly.reverse {
+  flex-direction: row-reverse;
+}
+
+/* keep whichever column you like sticky                */
+.sticky-col {
+  position: sticky;
+  top: 0;
+  height: 50vh;          /* match the plot’s height     */
+  overflow: auto;        /* just in case                */
+}

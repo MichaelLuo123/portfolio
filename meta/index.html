@@ -1,44 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Meta</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
   <script type="module" src="main.js"></script>
 </head>
 <body>
   <h1>Meta</h1>
   <p>This page includes stats about the code of this website.</p>
-  <div id="stats"></div>
-  <h2>Commits by time of day</h2>
+
+  <!-- Global commit stats -->
+  <div id="stats" class="stats-section"></div>
+
+  <!-- Time slider and selected time label -->
+  <h2>Commits by Time of Day</h2>
   <div id="filter-ui">
     <label for="commit-slider">
       Show commits until:
-      <input id="commit-slider" type="range" min="0" max="100" value="0">
+      <input id="commit-slider" type="range" min="0" max="100" value="100" />
     </label>
     <time id="selectedTime"></time>
   </div>
-<div id="chart"></div>
-<p id="selection-count">No commits selected</p>
-<dl id="commit-tooltip" class="info tooltip" hidden>
-   
-    <dt>Commit</dt>
-    <dd><a href="" id="commit-link" target="_blank"></a></dd>
-  
-    <dt>Date</dt>
-    <dd id="commit-date"></dd>
-  
-    <dt>Time</dt>
-    <dd id="commit-time"></dd>
-  
-    <dt>Author</dt>
-    <dd id="commit-author"></dd>
-  
-    <dt>Lines Edited</dt>
-    <dd id="commit-lines"></dd>
-  </dl>  
 
-  <dl id="language-breakdown" class="stats"></dl>
+  <!-- Scrollytelling section -->
+  <div id="scrolly-1">
+    <div id="scatter-story">
+      <p>Some filler explanatory text here about the scatter plot and commits...</p>
+      <!-- Step divs will be injected dynamically -->
+    </div>
+
+    <div id="scatter-plot">
+      <div id="chart"></div>
+      <p id="selection-count">No commits selected</p>
+
+      <!-- Commit tooltip -->
+      <dl id="commit-tooltip" class="info tooltip" hidden>
+        <dt>Commit</dt>
+        <dd><a href="" id="commit-link" target="_blank"></a></dd>
+
+        <dt>Date</dt>
+        <dd id="commit-date"></dd>
+
+        <dt>Time</dt>
+        <dd id="commit-time"></dd>
+
+        <dt>Author</dt>
+        <dd id="commit-author"></dd>
+
+        <dt>Lines Edited</dt>
+        <dd id="commit-lines"></dd>
+      </dl>
+
+      <!-- Language breakdown for selected commits -->
+      <dl id="language-breakdown" class="stats"></dl>
+    </div>
+  </div>
+
+  <!-- File breakdown section -->
+  <dl id="files"></dl>
+
+  <!-- Global logic -->
   <script type="module" src="../global.js"></script>
 </body>
 </html>
