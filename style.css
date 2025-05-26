@@ -248,11 +248,6 @@ circle {
   transform-box: fill-box; 
 
 }
-@starting-style {
-  circle {
-    r: 0;
-  }
-}
 circle:hover {
   transform: scale(1.5);
 }
