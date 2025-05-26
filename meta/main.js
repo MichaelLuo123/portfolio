@@ -362,14 +362,3 @@ d3.select('#scatter-story')
       step: '#scrolly-1 .step',
     })
     .onStepEnter(onStepEnter)
-    function copyFilesList() {
-      const original = document.querySelector('#files');
-      const copy = document.querySelector('#files-copy');
-      if (original && copy) {
-        copy.innerHTML = original.innerHTML;
-      }
-    }
-    
-    // Call this after the original files list is populated
-    copyFilesList();
-    
