@@ -119,18 +119,15 @@ function updateScatterPlot(data, filteredCommits) {
     );
 
     const dots = svg.append('g').attr('class', 'dots');
-
     dots.selectAll('circle')
-        .data(sortedCommits)
-        .join('circle')
+    .data(sortedCommits, d => d.id)
+    .join(
+      enter => enter.append('circle')
         .attr('cx', d => xScale(d.datetime))
         .attr('cy', d => yScale(d.hourFrac))
-        .attr('r', d => rScale(d.totalLines))
+        .attr('r', 0)
         .attr('fill', 'steelblue')
         .style('fill-opacity', 0.7)
-        .style('transition', 'transform 200ms')
-        .style('transform-origin', 'center')
-        .style('transform-box', 'fill-box')
         .on('mouseenter', (event, commit) => {
             d3.select(event.currentTarget).style('fill-opacity', 1);
             renderTooltipContent(commit);
@@ -140,7 +137,24 @@ function updateScatterPlot(data, filteredCommits) {
         .on('mouseleave', (event) => {
             d3.select(event.currentTarget).style('fill-opacity', 0.7);
             updateTooltipVisibility(false);
-        });
+        })
+        .transition()
+        .duration(400)
+        .attr('r', d => rScale(d.totalLines)),
+
+      update => update
+        .transition()
+        .duration(400)
+        .attr('cx', d => xScale(d.datetime))
+        .attr('cy', d => yScale(d.hourFrac))
+        .attr('r', d => rScale(d.totalLines)),
+
+      exit => exit
+        .transition()
+        .duration(200)
+        .attr('r', 0)
+        .remove()
+    );
 
     svg
         .append('g')
