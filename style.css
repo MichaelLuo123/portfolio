@@ -371,22 +371,3 @@ dt small {
   height: 50vh;
 }
 
-/* generic styling shared by every scrolly container  */
-.scrolly {
-  position: relative;
-  display: flex;
-  gap: 1rem;
-}
-
-/* flip left / right for mirrored passes               */
-.scrolly.reverse {
-  flex-direction: row-reverse;
-}
-
-/* keep whichever column you like sticky                */
-.sticky-col {
-  position: sticky;
-  top: 0;
-  height: 50vh;          /* match the plot’s height     */
-  overflow: auto;        /* just in case                */
-}
