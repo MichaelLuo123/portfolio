@@ -117,6 +117,15 @@ h1, h2, h3, h4, h5, h6 {
   grid-row: 2;
   margin: 0;
   text-align: center;
+  /* Override the global dd styles */
+  display: block !important;
+  flex-wrap: unset !important;
+  align-items: unset !important;
+  align-content: unset !important;
+  gap: unset !important;
+  padding-top: 0 !important;
+  margin-left: 0 !important;
+  grid-column: unset !important;
 }
 .project-year {
   color: gray;
@@ -182,7 +191,8 @@ svg path {
 .legend-item.selected {
   --color: oklch(60% 45% 0) !important;
 }
-.stats {
+/* Change this block from line ~140 */
+.some-other-container .stats {
   display: flex;
   justify-content: space-between; 
   align-items: baseline;
@@ -194,7 +204,7 @@ svg path {
   border-top: 1px solid #ccc;
 }
 
-.stats dt {
+.some-other-container .stats dt {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -203,14 +213,14 @@ svg path {
   margin-bottom: 0.25rem;
 }
 
-.stats dd {
+.some-other-container .stats dd {
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
   text-align: center;
 }
 
-.stats dl {
+.some-other-container .stats dl {
   display: flex;
   flex-direction: column;
   align-items: center;
