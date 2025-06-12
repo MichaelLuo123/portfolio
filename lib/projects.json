@@ -62,9 +62,12 @@
         "description": "This project visualizes Boston bike traffic by showing locations with more bike departures, arrivals, or balanced flow using color-coded circles and a clear legend for easy interpretation."
     },
     {
-        "title": "Ratione assumenda quam qui!",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Voluptatibus architecto corporis voluptatum in, reprehenderit assumenda voluptates nihil asperiores possimus dolorem sapiente, hic modi maiores fuga provident nostrum excepturi, tenetur omnis et? Officiis laudantium ea nostrum dolorem, harum doloremque."
+        "title": "Bob's Gait Pattern Analyzer",
+        "year": "2025",
+        "image": "../images/gait-project.jpeg",
+        "width": "272px",
+        "height": "136px",
+        "description": "This project processes real-time user-recorded rhythms and integrates extensive biomechanical data from PhysioNet's Neurodegenerative Disease Database. Through dynamic, interactive charts with brushing capabilities and a multi-slide educational narrative, the application effectively demonstrates the subtle effects of various neurological diseases on gait, highlighting its critical role in early detection, treatment monitoring, and medical insights."
     },
     {
         "title": "Obcaecati quisquam eaque tempora.",
