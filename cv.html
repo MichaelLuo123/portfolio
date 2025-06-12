@@ -3,127 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Luo: Fake CV</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Michael Luo: Resume</title>
+    <link rel="stylesheet" href="style.css"> <!-- Ensure you have a style.css file for proper formatting -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            color: #212529;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-top: 0;
+            font-weight: 400;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #495057;
+        }
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f0f4f8;
+            border: 1px solid #dee2e6;
+        }
+        section header h2 {
+            font-size: 1.8rem;
+            color: #343a40;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid #ced4da;
+            padding-bottom: 8px;
+        }
+        article {
+            margin-bottom: 20px;
+        }
+        article header {
+            text-align: left;
+            margin-bottom: 10px;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        article header h3 {
+            font-size: 1.3rem;
+            color: #007bff;
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+        article header h4 {
+            font-size: 1.1rem;
+            color: #495057;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        article header time {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        article p, article ul {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            font-size: 1rem;
+            color: #495057;
+        }
+        article ul li {
+            margin-bottom: 5px;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skills-list li {
+            background-color: #e9f5ff;
+            color: #0056b3;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    <!--
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects/index.html">Projects</a></li>
-            <li><a href="contact/index.html">Contact</a></li>
-            <li><a href="https://github.com/michaelluo123" target="_blank">Profile</a></li>
-            <li><a href="cv.html">Fake Resume</a></li>
-        </ul>
-    </nav>
--->
-    <header>
-        <h1>Michael Luo</h1>
-        <p>Data Scientist | Software Developer | Research Enthusiast</p>
-    </header>
-
-    <section>
+    <div class="container">
         <header>
-            <h2>Contact Information</h2>
+            <h1>Michael Luo</h1>
+            <p>Data Scientist | Software Developer | Research Enthusiast</p>
+            <div class="contact-info">
+                <span>408-916-8827</span>
+                <span>mluo.lion@gmail.com</span>
+                <a href="https://linkedin.com/in/michael-luo1" target="_blank" rel="noopener noreferrer">linkedin.com/in/michael-luo1</a>
+                <a href="https://github.com/MichaelLuo123" target="_blank" rel="noopener noreferrer">github.com/MichaelLuo123</a>
+                <a href="https://michaelluo123.github.io/portfolio" target="_blank" rel="noopener noreferrer">michaelluo123.github.io/portfolio</a>
+            </div>
         </header>
-        <p>Email: fakeemail@example.com</p>
-        <p>Phone: (555) 123-4567</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/fakeprofile">LinkedIn Profile</a></p>
-    </section>
 
-    <section>
-        <header>
-            <h2>Education</h2>
-        </header>
-        <article>
+        <section>
             <header>
-                <h3>University of Example</h3>
-                <time datetime="2022-09-01">September 2022 - June 2026</time>
+                <h2>Education</h2>
             </header>
-            <p>Bachelor of Science in Data Science, expected graduation in 2026</p>
-            <p>Relevant Coursework: Data Structures, Machine Learning, Statistical Inference, Data Visualization, Computational Algorithms</p>
-            <p>Thesis: "Predictive Modeling of Housing Prices using Regression Analysis"</p>
-        </article>
-    </section>
+            <article>
+                <h3>University of California - San Diego</h3>
+                <h4>B.S. in Data Science, expected June 2026</h4>
+                <ul>
+                    <li>Relevant Coursework: Data Structures and Algorithms, Object-Oriented Programming, Linear Algebra, Database Management, Theoretical Foundations of Data Science, Practice and Application of Data Science</li>
+                    <li>Major GPA: 4.0/4.0, Provost Honors every Quarter</li>
+                </ul>
+            </article>
+        </section>
 
-    <section>
-        <header>
-            <h2>Research Experience</h2>
-        </header>
-        <article>
+        <section>
             <header>
-                <h3>Data Science Research Assistant</h3>
-                <time datetime="2023-05-01">May 2023 - Present</time>
+                <h2>Experience</h2>
             </header>
-            <p>Worked as part of a research team on a project exploring the use of machine learning in predicting stock market trends. Contributed to the development of models using Python (TensorFlow, Scikit-learn) and conducted extensive data analysis using pandas and NumPy.</p>
-            <p>Published findings in the "Journal of Data Science & AI", June 2024.</p>
-        </article>
-    </section>
+            <article>
+                <h3>Team Member</h3>
+                <h4>Jersey Mike’s Subs | San Jose, CA</h4>
+                <time datetime="2022-05">May 2022 – September 2023</time>, <time datetime="2024-07">July 2024 – September 2024</time>
+                <ul>
+                    <li>Delivered service to 100+ customers daily in a fast-paced environment, consistently receiving positive feedback.</li>
+                    <li>Collaborated with a team of 5 members to maintain efficient operations, cleanliness, and meet peak hour demands.</li>
+                    <li>Exercised problem-solving skills within a dynamic setting to manage unexpected situations while maintaining service quality.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Member</h3>
+                <h4>Data Science Student Society | San Diego, CA</h4>
+                <time datetime="2023-09">September 2023 – Present</time>
+                <ul>
+                    <li>Optimized SQL queries to analyze large datasets from club projects, improving data retrieval efficiency by 21%.</li>
+                    <li>Built a data analytics dashboard with HTML, CSS, and JavaScript for 50+ members to explore business metrics.</li>
+                    <li>Developed Scikit-learn models to predict exam scores, enabling early identification of 30+ at-risk students.</li>
+                    <li>Led team of 5 to create a housing market model, analyzing data from 1,000+ transactions for investment insights.</li>
+                </ul>
+            </article>
+        </section>
 
-    <section>
-        <header>
-            <h2>Work Experience</h2>
-        </header>
-        <article>
+        <section>
             <header>
-                <h3>Software Developer Intern</h3>
-                <time datetime="2023-06-01">June 2023 - August 2023</time>
+                <h2>Projects</h2>
             </header>
-            <p>Assisted in the development of a data-driven recommendation system for an e-commerce platform. Developed backend systems using Python and Flask, integrated third-party APIs, and optimized SQL queries for large datasets.</p>
-        </article>
+            <article>
+                <h3>MiniGit | Java, IntelliJ, JUnit, Command Line Interface, SHA-1</h3>
+                <ul>
+                    <li>Implemented a simplified version control system similar to Git, with staging, committing, and branching.</li>
+                    <li>Simulated Git structure by implementing object storage and handling the HEAD pointer for branch tracking.</li>
+                    <li>Utilized SHA-1 hashing for file and commit integrity, ensuring unique identifiers for all objects in the system.</li>
+                    <li>Conducted extensive JUnit testing to ensure accuracy and reliability in version tracking and data integrity.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Parkour Fury | Python, Python Arcade, NumPy, VS Code, Git, GIMP</h3>
+                <ul>
+                    <li>Led a team of 4 to build a 2D platformer game with over 100 interactive sprites and three distinct levels.</li>
+                    <li>Created mechanics with 95% accuracy in collision detection, enabling interactions with 20+ obstacles/platforms.</li>
+                    <li>Winner of Best Beginner Project, placing 1st out of 20+ teams in the Leland Hacks Hackathon.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>NBA Draft Recommender & Legend Guesser | React, Next.js, TypeScript, Tailwind, Python, Pandas, Machine Learning</h3>
+                <ul>
+                    <li>Built a website with a draft recommender and Akinator-style NBA guessing game for DataHacks.</li>
+                    <li>Built a React and Next.js frontend with dynamic filtering to narrow down players using statistical comparisons.</li>
+                    <li>Integrated custom algorithms to determine the most informative question at each step, balancing player subsets.</li>
+                    <li>Engineered backend using Python and Pandas to clean and preprocess NBA stats from API for up-to-date live use.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Medical Gait Data Explorer | HTML, CSS, JavaScript, D3.js</h3>
+                <ul>
+                    <li>Developed an interactive web app to show effects of gait analysis in relation to neurological diseases with real-time gait pattern analysis, letting users record personal walking rhythms, showcased at an event with 100+ attendees.</li>
+                    <li>Engineered dynamic charts with interactive brushing comparing stride intervals from simulated and real data.</li>
+                    <li>Implemented robust JS data pipelines to process raw time-series click data into calculated stride intervals.</li>
+                    <li>Designed a multi-slide narrative with animations to communicate complex medical concepts and applications.</li>
+                </ul>
+            </article>
+            <article>
+                <h3>League of Legends Role Analysis and Predictor | Python, Pandas, Scikit-Learn, Data Visualization, Machine Learning</h3>
+                <ul>
+                    <li>Analyzed 97,980 rows of professional data to determine which role—ADC or Mid—has more impact.</li>
+                    <li>Developed a random forest classifier to predict a player’s role from in-game statistics, achieving 69.89% accuracy.</li>
+                    <li>Conducted hypothesis testing & fairness analysis to evaluate model bias and statistical significance.</li>
+                </ul>
+            </article>
+        </section>
 
-        <article>
+        <section>
             <header>
-                <h3>Junior Data Analyst</h3>
-                <time datetime="2024-01-01">January 2024 - Present</time>
+                <h2>Technical Skills</h2>
             </header>
-            <p>Analyzed and visualized large datasets for a marketing analytics firm. Produced reports and dashboards using Tableau, highlighting trends in customer behavior. Collaborated with the data engineering team to automate data pipelines and improve data quality.</p>
-        </article>
-    </section>
+            <ul>
+                <li>**Languages:** Java, JavaScript, Python, HTML, CSS, SQL, C++, C#</li>
+                <li>**Technologies:** Jupyter Notebooks, Jira/Confluence/Bitbucket, Linux, React.js, Node.js, Pandas, NumPy, Scikit-Learn, D3.js, PostgreSQL</li>
+                <li>**Developer Tools:** Git, VS Code, IntelliJ, Unity Engine, Node Package Manager</li>
+            </ul>
+        </section>
 
-    <section>
-        <header>
-            <h2>Publications</h2>
-        </header>
-        <article>
-            <header>
-                <h3>"Predictive Modeling of Housing Prices using Regression Analysis"</h3>
-                <time datetime="2024-06-15">June 2024</time>
-            </header>
-            <p>Published in the Journal of Data Science & AI. This paper explored various regression models and their application in predicting housing prices based on factors like location, size, and economic conditions.</p>
-        </article>
-    </section>
-
-    <section>
-        <header>
-            <h2>Skills</h2>
-        </header>
-        <ul>
-            <li>Programming Languages: Python, SQL, JavaScript</li>
-            <li>Machine Learning: Scikit-learn, TensorFlow, Keras</li>
-            <li>Data Visualization: Tableau, Power BI, Matplotlib, Seaborn</li>
-            <li>Web Development: HTML, CSS, JavaScript (Node.js)</li>
-            <li>Data Management: MySQL, PostgreSQL, MongoDB</li>
-        </ul>
-    </section>
-
-    <section>
-        <header>
-            <h2>Conferences & Presentations</h2>
-        </header>
-        <article>
-            <header>
-                <h3>Data Science Conference 2024</h3>
-                <time datetime="2024-04-12">April 2024</time>
-            </header>
-            <p>Presented research findings on machine learning-based stock market predictions at the Data Science Conference 2024. The presentation focused on predictive modeling techniques and their real-world applications.</p>
-        </article>
-    </section>
-
-    <footer>
-        <p>© 2025 Michael Luo</p>
-    </footer>
-    <script type="module" src="global.js"></script>
+        <footer>
+            <p>© 2025 Michael Luo</p>
+        </footer>
+    </div>
 </body>
 </html>
