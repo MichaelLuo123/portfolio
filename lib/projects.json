@@ -64,7 +64,7 @@
     {
         "title": "Bob's Gait Pattern Analyzer",
         "year": "2025",
-        "image": "../images/gait-project.jpeg",
+        "image": "../images/gait.png",
         "width": "272px",
         "height": "136px",
         "description": "This project processes real-time user-recorded rhythms and integrates extensive biomechanical data from PhysioNet's Neurodegenerative Disease Database. Through dynamic, interactive charts with brushing capabilities and a multi-slide educational narrative, the application effectively demonstrates the subtle effects of various neurological diseases on gait, highlighting its critical role in early detection, treatment monitoring, and medical insights."
