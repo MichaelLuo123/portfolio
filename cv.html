@@ -4,126 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Luo: Resume</title>
-    <link rel="stylesheet" href="style.css"> <!-- Ensure you have a style.css file for proper formatting -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <!--
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects/index.html">Projects</a></li>
+            <li><a href="contact/index.html">Contact</a></li>
+            <li><a href="https://github.com/michaelluo123" target="_blank">Profile</a></li>
+            <li><a href="cv.html">Fake Resume</a></li>
+        </ul>
+    </nav>
+-->
+    <header>
+        <h1>Michael Luo</h1>
+        <p>Data Scientist | Software Developer | Research Enthusiast</p>
+    </header>
+
+    <section>
         <header>
-            <h1>Michael Luo</h1>
-            <p>Data Scientist | Software Developer | Research Enthusiast</p>
-            <div class="contact-info">
-                <span>408-916-8827</span>
-                <span>mluo.lion@gmail.com</span>
-                <a href="https://linkedin.com/in/michael-luo1" target="_blank" rel="noopener noreferrer">linkedin.com/in/michael-luo1</a>
-                <a href="https://github.com/MichaelLuo123" target="_blank" rel="noopener noreferrer">github.com/MichaelLuo123</a>
-                <a href="https://michaelluo123.github.io/portfolio" target="_blank" rel="noopener noreferrer">michaelluo123.github.io/portfolio</a>
-            </div>
+            <h2>Contact Information</h2>
         </header>
+        <p>408-916-8827 | mluo.lion@gmail.com | <a href="https://linkedin.com/in/michael-luo1" target="_blank" rel="noopener noreferrer">linkedin.com/in/michael-luo1</a> | <a href="https://github.com/MichaelLuo123" target="_blank" rel="noopener noreferrer">github.com/MichaelLuo123</a> | <a href="https://michaelluo123.github.io/portfolio" target="_blank" rel="noopener noreferrer">michaelluo123.github.io/portfolio</a></p>
+    </section>
 
-        <section>
+    <section>
+        <header>
+            <h2>Education</h2>
+        </header>
+        <article>
             <header>
-                <h2>Education</h2>
-            </header>
-            <article>
                 <h3>University of California - San Diego</h3>
-                <h4>B.S. in Data Science, expected June 2026</h4>
-                <ul>
-                    <li>Relevant Coursework: Data Structures and Algorithms, Object-Oriented Programming, Linear Algebra, Database Management, Theoretical Foundations of Data Science, Practice and Application of Data Science</li>
-                    <li>Major GPA: 4.0/4.0, Provost Honors every Quarter</li>
-                </ul>
-            </article>
-        </section>
-
-        <section>
-            <header>
-                <h2>Experience</h2>
+                <time datetime="2026-06-01">June 2026</time>
             </header>
-            <article>
+            <h4>B.S. in Data Science, expected June 2026</h4>
+            <ul>
+                <li>Relevant Coursework: Data Structures and Algorithms, Object-Oriented Programming, Linear Algebra, Database Management, Theoretical Foundations of Data Science, Practice and Application of Data Science</li>
+                <li>Major GPA: 4.0/4.0, Provost Honors every Quarter</li>
+            </ul>
+        </article>
+    </section>
+
+    <section>
+        <header>
+            <h2>Experience</h2>
+        </header>
+        <article>
+            <header>
                 <h3>Team Member</h3>
                 <h4>Jersey Mike’s Subs | San Jose, CA</h4>
                 <time datetime="2022-05">May 2022 – September 2023</time>, <time datetime="2024-07">July 2024 – September 2024</time>
-                <ul>
-                    <li>Delivered service to 100+ customers daily in a fast-paced environment, consistently receiving positive feedback.</li>
-                    <li>Collaborated with a team of 5 members to maintain efficient operations, cleanliness, and meet peak hour demands.</li>
-                    <li>Exercised problem-solving skills within a dynamic setting to manage unexpected situations while maintaining service quality.</li>
-                </ul>
-            </article>
-            <article>
+            </header>
+            <ul>
+                <li>Delivered service to 100+ customers daily in a fast-paced environment, consistently receiving positive feedback.</li>
+                <li>Collaborated with a team of 5 members to maintain efficient operations, cleanliness, and meet peak hour demands.</li>
+                <li>Exercised problem-solving skills within a dynamic setting to manage unexpected situations while maintaining service quality.</li>
+            </ul>
+        </article>
+        <article>
+            <header>
                 <h3>Member</h3>
                 <h4>Data Science Student Society | San Diego, CA</h4>
                 <time datetime="2023-09">September 2023 – Present</time>
-                <ul>
-                    <li>Optimized SQL queries to analyze large datasets from club projects, improving data retrieval efficiency by 21%.</li>
-                    <li>Built a data analytics dashboard with HTML, CSS, and JavaScript for 50+ members to explore business metrics.</li>
-                    <li>Developed Scikit-learn models to predict exam scores, enabling early identification of 30+ at-risk students.</li>
-                    <li>Led team of 5 to create a housing market model, analyzing data from 1,000+ transactions for investment insights.</li>
-                </ul>
-            </article>
-        </section>
-
-        <section>
-            <header>
-                <h2>Projects</h2>
-            </header>
-            <article>
-                <h3>MiniGit | Java, IntelliJ, JUnit, Command Line Interface, SHA-1</h3>
-                <ul>
-                    <li>Implemented a simplified version control system similar to Git, with staging, committing, and branching.</li>
-                    <li>Simulated Git structure by implementing object storage and handling the HEAD pointer for branch tracking.</li>
-                    <li>Utilized SHA-1 hashing for file and commit integrity, ensuring unique identifiers for all objects in the system.</li>
-                    <li>Conducted extensive JUnit testing to ensure accuracy and reliability in version tracking and data integrity.</li>
-                </ul>
-            </article>
-            <article>
-                <h3>Parkour Fury | Python, Python Arcade, NumPy, VS Code, Git, GIMP</h3>
-                <ul>
-                    <li>Led a team of 4 to build a 2D platformer game with over 100 interactive sprites and three distinct levels.</li>
-                    <li>Created mechanics with 95% accuracy in collision detection, enabling interactions with 20+ obstacles/platforms.</li>
-                    <li>Winner of Best Beginner Project, placing 1st out of 20+ teams in the Leland Hacks Hackathon.</li>
-                </ul>
-            </article>
-            <article>
-                <h3>NBA Draft Recommender & Legend Guesser | React, Next.js, TypeScript, Tailwind, Python, Pandas, Machine Learning</h3>
-                <ul>
-                    <li>Built a website with a draft recommender and Akinator-style NBA guessing game for DataHacks.</li>
-                    <li>Built a React and Next.js frontend with dynamic filtering to narrow down players using statistical comparisons.</li>
-                    <li>Integrated custom algorithms to determine the most informative question at each step, balancing player subsets.</li>
-                    <li>Engineered backend using Python and Pandas to clean and preprocess NBA stats from API for up-to-date live use.</li>
-                </ul>
-            </article>
-            <article>
-                <h3>Medical Gait Data Explorer | HTML, CSS, JavaScript, D3.js</h3>
-                <ul>
-                    <li>Developed an interactive web app to show effects of gait analysis in relation to neurological diseases with real-time gait pattern analysis, letting users record personal walking rhythms, showcased at an event with 100+ attendees.</li>
-                    <li>Engineered dynamic charts with interactive brushing comparing stride intervals from simulated and real data.</li>
-                    <li>Implemented robust JS data pipelines to process raw time-series click data into calculated stride intervals.</li>
-                    <li>Designed a multi-slide narrative with animations to communicate complex medical concepts and applications.</li>
-                </ul>
-            </article>
-            <article>
-                <h3>League of Legends Role Analysis and Predictor | Python, Pandas, Scikit-Learn, Data Visualization, Machine Learning</h3>
-                <ul>
-                    <li>Analyzed 97,980 rows of professional data to determine which role—ADC or Mid—has more impact.</li>
-                    <li>Developed a random forest classifier to predict a player’s role from in-game statistics, achieving 69.89% accuracy.</li>
-                    <li>Conducted hypothesis testing & fairness analysis to evaluate model bias and statistical significance.</li>
-                </ul>
-            </article>
-        </section>
-
-        <section>
-            <header>
-                <h2>Technical Skills</h2>
             </header>
             <ul>
-                <li>**Languages:** Java, JavaScript, Python, HTML, CSS, SQL, C++, C#</li>
-                <li>**Technologies:** Jupyter Notebooks, Jira/Confluence/Bitbucket, Linux, React.js, Node.js, Pandas, NumPy, Scikit-Learn, D3.js, PostgreSQL</li>
-                <li>**Developer Tools:** Git, VS Code, IntelliJ, Unity Engine, Node Package Manager</li>
+                <li>Optimized SQL queries to analyze large datasets from club projects, improving data retrieval efficiency by 21%.</li>
+                <li>Built a data analytics dashboard with HTML, CSS, and JavaScript for 50+ members to explore business metrics.</li>
+                <li>Developed Scikit-learn models to predict exam scores, enabling early identification of 30+ at-risk students.</li>
+                <li>Led team of 5 to create a housing market model, analyzing data from 1,000+ transactions for investment insights.</li>
             </ul>
-        </section>
+        </article>
+    </section>
 
-        <footer>
-            <p>© 2025 Michael Luo</p>
-        </footer>
-    </div>
+    <section>
+        <header>
+            <h2>Projects</h2>
+        </header>
+        <article>
+            <h3>MiniGit | Java, IntelliJ, JUnit, Command Line Interface, SHA-1</h3>
+            <ul>
+                <li>Implemented a simplified version control system similar to Git, with staging, committing, and branching.</li>
+                <li>Simulated Git structure by implementing object storage and handling the HEAD pointer for branch tracking.</li>
+                <li>Utilized SHA-1 hashing for file and commit integrity, ensuring unique identifiers for all objects in the system.</li>
+                <li>Conducted extensive JUnit testing to ensure accuracy and reliability in version tracking and data integrity.</li>
+            </ul>
+        </article>
+        <article>
+            <h3>Parkour Fury | Python, Python Arcade, NumPy, VS Code, Git, GIMP</h3>
+            <ul>
+                <li>Led a team of 4 to build a 2D platformer game with over 100 interactive sprites and three distinct levels.</li>
+                <li>Created mechanics with 95% accuracy in collision detection, enabling interactions with 20+ obstacles/platforms.</li>
+                <li>Winner of Best Beginner Project, placing 1st out of 20+ teams in the Leland Hacks Hackathon.</li>
+            </ul>
+        </article>
+        <article>
+            <h3>NBA Draft Recommender & Legend Guesser | React, Next.js, TypeScript, Tailwind, Python, Pandas, Machine Learning</h3>
+            <ul>
+                <li>Built a website with a draft recommender and Akinator-style NBA guessing game for DataHacks, 100% accurary.</li>
+                <li>Built a React and Next.js frontend with dynamic filtering to narrow down players using statistical comparisons.</li>
+                <li>Integrated custom algorithms to determine the most informative question at each step, balancing player subsets.</li>
+                <li>Engineered backend using Python and Pandas to clean and preprocess NBA stats from API for up-to-date live use.</li>
+            </ul>
+        </article>
+        <article>
+            <h3>Medical Gait Data Explorer | HTML, CSS, JavaScript, D3.js</h3>
+            <ul>
+                <li>Developed an interactive web app to show effects of gait analysis in relation to neurological diseases with real-time gait pattern analysis, letting users record personal walking rhythms showcased at event with 100+ attendees.</li>
+                <li>Engineered dynamic charts with interactive brushing comparing stride intervals from simulated and real data.</li>
+                <li>Implemented robust JS data pipelines to process raw time-series click data into calculated stride intervals.</li>
+                <li>Designed a multi-slide narrative with animations to communicate complex medical concepts and applications.</li>
+            </ul>
+        </article>
+        <article>
+            <h3>League of Legends Role Analysis and Predictor | Python, Pandas, Scikit-Learn, Data Visualization, Machine Learning</h3>
+            <ul>
+                <li>Analyzed 97,980 rows of professional data to determine which role—ADC or Mid—has more impact.</li>
+                <li>Developed a random forest classifier to predict a player’s role from in-game statistics, achieving 69.89% accuracy.</li>
+                <li>Conducted hypothesis testing & fairness analysis to evaluate model bias and statistical significance.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section>
+        <header>
+            <h2>Technical Skills</h2>
+        </header>
+        <ul>
+            <li>**Languages:** Java, JavaScript, Python, HTML, CSS, SQL, C++, C#</li>
+            <li>**Technologies:** Jupyter Notebooks, Jira/Confluence/Bitbucket, Linux, React.js, Node.js, Pandas, NumPy, Scikit-Learn, D3.js, PostgreSQL</li>
+            <li>**Developer Tools:** Git, VS Code, IntelliJ, Unity Engine, Node Package Manager</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 Michael Luo</p>
+    </footer>
 </body>
 </html>
